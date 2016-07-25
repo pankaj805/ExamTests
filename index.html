@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Test Scores Application</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="assets/font-awesome.min.css" />
+      <link rel="stylesheet" type="text/css" href="assets/bootstrap-flat.css">
+      <link rel="stylesheet" type="text/css" href="assets/index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+      
+      
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+            <h1>Test Scores</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">SAT</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="role">
+                            <div id="allSatScores" data-bind="foreach: AllTestRecords.SatRecords">
+                                <div class="row">
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label>Test Date <small class="text-muted">If you haven't taken the SA, add upcoming date</small></label>
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <select class="form-control" id="exampleSelect1"  disabled>
+                                                        <option data-bind=" text: test_month"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
+                                                    <select class=" form-control" id="exampleSelect2" disabled>
+                                                        <option data-bind=" text: test_year"></option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <label>Test Score</label>
+                                        <h3 class="testscore" data-bind="text: test_score" ></h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Reading</label>
+                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Writing</label>
+                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Maths</label>
+                                                    <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Test Date</label>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <select class="form-control" data-bind="options: months.all, optionsCaption: 'Month', value: AllTestRecords.satSingleRec.test_month">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
+                                                <select class="form-control" data-bind="options: years.all, optionsCaption: 'Year', value: AllTestRecords.satSingleRec.test_year">
+                                                    
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <label>Test Score</label>
+                                    <h3 class="testscore" data-bind="text: AllTestRecords.satSingleRec.test_score, css: { 'text-muted': AllTestRecords.satSingleRec.test_score() == '####' }" id="testscore1"></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Reading</label>
+                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.satSingleRec.reading" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Writing</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.satSingleRec.writing" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Maths</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.satSingleRec.maths" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </form> 
+                         <div class="row">
+                        <div class="col-md-8">
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="col-md-6 ">
+                                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeSatSingleRec, enable: AllTestRecords.canDelSatRec">Remove Last Sat</button>
+                            </div>
+                            <div class="col-md-6 ">                          
+                                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addSatSingleRec, enable: AllTestRecords.satSingleRec.canAddRec">Add Another Sat</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">SAT II</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
+                    </div>
+                    <div class="panel-body collapse" >
+                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
+                        is a technology and financial services company. 
+                        The company offers products and services ranging from aircraft engines, power generation, 
+                        water processing, and household appliances, among others. 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title">ACT</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
+                    </div>
+                    <div class="panel-body collapse">
+                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
+                        is a technology and financial services company. 
+                        The company offers products and services ranging from aircraft engines, power generation, 
+                        water processing, and household appliances, among others. 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+         <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">TOEFL\IEL</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
+                    </div>
+                    <div class="panel-body collapse">
+                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
+                        is a technology and financial services company. 
+                        The company offers products and services ranging from aircraft engines, power generation, 
+                        water processing, and household appliances, among others. 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+          
+      
+    </div>
+      
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" type="text/javascript"></script>
+      <script src="assets/index.js" type="text/javascript"></script>
+      
+      
+      <script type="text/javascript">
+    jQuery(function ($) {
+        $('.panel-heading span.clickable').on("click", function (e) {
+            if ($(this).hasClass('panel-collapsed')) {
+                // expand the panel
+                $(this).parents('.panel').find('.panel-body').slideDown();
+                $(this).removeClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+            }else if ($(this).parents('.panel').find('.panel-body').hasClass('collapse')) {
+                // expand the panel
+                $(this).parents('.panel').find('.panel-body').slideDown();
+                $(this).removeClass('panel-collapsed');
+                $(this).parents('.panel').find('.panel-body').removeClass('collapse');
+                $(this).find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+            }
+            else {
+                // collapse the panel
+                $(this).parents('.panel').find('.panel-body').slideUp();
+                $(this).addClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            }
+        });
+        
+        
+        
+    });
+          
+</script>
+  </body>
+</html>

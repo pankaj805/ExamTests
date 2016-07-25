@@ -1,0 +1,22 @@
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+.row {
+    margin-top: 4px;
+    padding: 0 10px;
+}
+.clickable {
+    cursor: pointer;
+}    
+
+
+
+.testscore{
+    margin-top: 8px;
+}
+
+
+.text-muted {
+    opacity: 0.4;
+}
