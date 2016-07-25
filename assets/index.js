@@ -71,9 +71,7 @@ var AllTestRecords = function () {
     }, satSingleRec);    
     
     
-	var SatRecords = ko.observableArray([
-					{test_month:"May",test_year:"2016",reading:"400",writing:400,maths:400,test_score:1200}					
-	]);
+	var SatRecords = ko.observableArray([]);
 	
     var canDelSatRec = ko.pureComputed(function() {
         if (SatRecords().length > 1) {
