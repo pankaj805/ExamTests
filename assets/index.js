@@ -175,7 +175,11 @@ var AllTestRecords = function () {
         Sat2Records.pop();    
     };
     
-    
+    var removeSat2SingleRecAtIndex = function(data,event){
+        var context = ko.contextFor(event.target);
+        var i = context.$index();
+        Sat2Records.splice(i, 1);    
+    };
     
     
     /*
@@ -245,6 +249,14 @@ var AllTestRecords = function () {
         ActRecords.pop();    
     };
     
+    var removeActSingleRecAtIndex = function(data,event){
+        var context = ko.contextFor(event.target);
+        var i = context.$index();
+        ActRecords.splice(i, 1);    
+    };
+    
+    
+    
     
     /*
         TOEFL/IEL
@@ -313,6 +325,12 @@ var AllTestRecords = function () {
     var removeToflSingleRec = function(){
         ToflRecords.pop();    
     };
+    
+    var removeToflSingleRecAtIndex = function(data,event){
+        var context = ko.contextFor(event.target);
+        var i = context.$index();
+        ToflRecords.splice(i, 1);    
+    };
 	
 	var init = function () {
 		ko.applyBindings(AllTestRecords);
@@ -333,16 +351,19 @@ var AllTestRecords = function () {
 		sat2SingleRec: sat2SingleRec,
 		addSat2SingleRec: addSat2SingleRec,
         removeSat2SingleRec:removeSat2SingleRec,
+        removeSat2SingleRecAtIndex:removeSat2SingleRecAtIndex,
         canDelSat2Rec:canDelSat2Rec,
         ActRecords: ActRecords,
 		actSingleRec: actSingleRec,
 		addActSingleRec: addActSingleRec,
         removeActSingleRec:removeActSingleRec,
+        removeActSingleRecAtIndex:removeActSingleRecAtIndex,
         canDelActRec:canDelActRec,
         ToflRecords: ToflRecords,
 		toflSingleRec: toflSingleRec,
 		addToflSingleRec: addToflSingleRec,
         removeToflSingleRec:removeToflSingleRec,
+        removeToflSingleRecAtIndex:removeToflSingleRecAtIndex,
         canDelToflRec:canDelToflRec,
         months:months,
         years:years
