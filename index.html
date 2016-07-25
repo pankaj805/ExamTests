@@ -156,52 +156,390 @@
         
         
         <div class="row">
-            <div class="col-md-12">
+                        <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">SAT II</h3>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
                     </div>
                     <div class="panel-body collapse" >
-                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
-                        is a technology and financial services company. 
-                        The company offers products and services ranging from aircraft engines, power generation, 
-                        water processing, and household appliances, among others. 
+                        <form class="role">
+                            <div id="allSat2Scores" data-bind="foreach: AllTestRecords.Sat2Records">
+                                <div class="row">
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label>Test Date <small class="text-muted">If you haven't taken the SA, add upcoming date</small></label>
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <select class="form-control" id="exampleSelect1_2"  disabled>
+                                                        <option data-bind=" text: test_month"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
+                                                    <select class=" form-control" id="exampleSelect2_2" disabled>
+                                                        <option data-bind=" text: test_year"></option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <label>Test Score</label>
+                                        <h3 class="testscore" data-bind="text: test_score" ></h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Reading</label>
+                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Writing</label>
+                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Maths</label>
+                                                    <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Test Date</label>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <select class="form-control" data-bind="options: months.all, optionsCaption: 'Month', value: AllTestRecords.sat2SingleRec.test_month">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
+                                                <select class="form-control" data-bind="options: years.all, optionsCaption: 'Year', value: AllTestRecords.sat2SingleRec.test_year">
+                                                    
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <label>Test Score</label>
+                                    <h3 class="testscore" data-bind="text: AllTestRecords.sat2SingleRec.test_score, css: { 'text-muted': AllTestRecords.sat2SingleRec.test_score() == '####' }" ></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Reading</label>
+                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.sat2SingleRec.reading" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Writing</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.sat2SingleRec.writing" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Maths</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.sat2SingleRec.maths" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </form> 
+                         <div class="row">
+                        <div class="col-md-8">
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="col-md-6 ">
+                                <button type="button" id="submit_21" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeSat2SingleRec, enable: AllTestRecords.canDelSat2Rec">Remove Last Sat II</button>
+                            </div>
+                            <div class="col-md-6 ">                          
+                                <button type="button" id="submit_22" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addSat2SingleRec, enable: AllTestRecords.sat2SingleRec.canAddRec">Add Another Sat II</button>
+                            </div>
+                        </div>
                     </div>
+                    </div>
+                   
                 </div>
             </div>
 
         </div>
+        
+        
+        
+        
+            
+        
+        
+        
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default" >
+                        <div class="col-md-12">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">ACT</h3>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
                     </div>
                     <div class="panel-body collapse">
-                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
-                        is a technology and financial services company. 
-                        The company offers products and services ranging from aircraft engines, power generation, 
-                        water processing, and household appliances, among others. 
+                        <form class="role">
+                            <div id="allActScores" data-bind="foreach: AllTestRecords.ActRecords">
+                                <div class="row">
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label>Test Date <small class="text-muted">If you haven't taken the SA, add upcoming date</small></label>
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <select class="form-control" id="exampleSelect1_3"  disabled>
+                                                        <option data-bind=" text: test_month"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
+                                                    <select class=" form-control" id="exampleSelect2_3" disabled>
+                                                        <option data-bind=" text: test_year"></option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <label>Test Score</label>
+                                        <h3 class="testscore" data-bind="text: test_score" ></h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Reading</label>
+                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Writing</label>
+                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Maths</label>
+                                                    <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Test Date</label>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <select class="form-control" data-bind="options: months.all, optionsCaption: 'Month', value: AllTestRecords.actSingleRec.test_month">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
+                                                <select class="form-control" data-bind="options: years.all, optionsCaption: 'Year', value: AllTestRecords.actSingleRec.test_year">
+                                                    
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <label>Test Score</label>
+                                    <h3 class="testscore" data-bind="text: AllTestRecords.actSingleRec.test_score, css: { 'text-muted': AllTestRecords.actSingleRec.test_score() == '####' }" ></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Reading</label>
+                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.actSingleRec.reading" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Writing</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.actSingleRec.writing" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Maths</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.actSingleRec.maths" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </form> 
+                         <div class="row">
+                        <div class="col-md-8">
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="col-md-6 ">
+                                <button type="button" id="submit_31" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeActSingleRec, enable: AllTestRecords.canDelActRec">Remove Last Act</button>
+                            </div>
+                            <div class="col-md-6 ">                          
+                                <button type="button" id="submit_32" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addActSingleRec, enable: AllTestRecords.actSingleRec.canAddRec">Add Another Act</button>
+                            </div>
+                        </div>
                     </div>
+                    </div>
+                   
                 </div>
             </div>
 
         </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
          <div class="row">
-            <div class="col-md-12">
+                        <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">TOEFL\IEL</h3>
+                        <h3 class="panel-title">TOFL/IEL</h3>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
                     </div>
                     <div class="panel-body collapse">
-                        Founded in 1892 and headquartered in Fairfield, CT, LexisNexis Corporate Affiliations 
-                        is a technology and financial services company. 
-                        The company offers products and services ranging from aircraft engines, power generation, 
-                        water processing, and household appliances, among others. 
+                        <form class="role">
+                            <div id="allToflScores" data-bind="foreach: AllTestRecords.ToflRecords">
+                                <div class="row">
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label>Test Date <small class="text-muted">If you haven't taken the SA, add upcoming date</small></label>
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <select class="form-control" id="exampleSelect1_3"  disabled>
+                                                        <option data-bind=" text: test_month"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
+                                                    <select class=" form-control" id="exampleSelect2_3" disabled>
+                                                        <option data-bind=" text: test_year"></option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                        <label>Test Score</label>
+                                        <h3 class="testscore" data-bind="text: test_score" ></h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Reading</label>
+                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Writing</label>
+                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Maths</label>
+                                                    <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Test Date</label>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <select class="form-control" data-bind="options: months.all, optionsCaption: 'Month', value: AllTestRecords.toflSingleRec.test_month">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> 
+                                                <select class="form-control" data-bind="options: years.all, optionsCaption: 'Year', value: AllTestRecords.toflSingleRec.test_year">
+                                                    
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <label>Test Score</label>
+                                    <h3 class="testscore" data-bind="text: AllTestRecords.toflSingleRec.test_score, css: { 'text-muted': AllTestRecords.toflSingleRec.test_score() == '####' }" ></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Reading</label>
+                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.toflSingleRec.reading" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Writing</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.toflSingleRec.writing" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Maths</label>
+                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.toflSingleRec.maths" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </form> 
+                         <div class="row">
+                        <div class="col-md-7">
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="col-md-6 ">
+                                <button type="button" id="submit_31" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeToflSingleRec, enable: AllTestRecords.canDelToflRec">Remove Last TOFL/IEL</button>
+                            </div>
+                            <div class="col-md-6 ">                          
+                                <button type="button" id="submit_32" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addToflSingleRec, enable: AllTestRecords.toflSingleRec.canAddRec">Add Another TOFL/IEL</button>
+                            </div>
+                        </div>
                     </div>
+                    </div>
+                   
                 </div>
             </div>
 
