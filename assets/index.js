@@ -99,6 +99,12 @@ var AllTestRecords = function () {
     var removeSatSingleRec = function(){
         SatRecords.pop();    
     };
+    
+    var removeSatSingleRecAtIndex = function(data,event){
+        var context = ko.contextFor(event.target);
+        var i = context.$index();
+        SatRecords.splice(i, 1);    
+    };
 	
     
     
@@ -321,6 +327,7 @@ var AllTestRecords = function () {
 		satSingleRec: satSingleRec,
 		addSatSingleRec: addSatSingleRec,
         removeSatSingleRec:removeSatSingleRec,
+        removeSatSingleRecAtIndex:removeSatSingleRecAtIndex,
         canDelSatRec:canDelSatRec,
         Sat2Records: Sat2Records,
 		sat2SingleRec: sat2SingleRec,

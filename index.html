@@ -40,6 +40,8 @@
                                     <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
                                         <div class="form-group">
                                             <label>Test Date <small class="text-muted">If you haven't taken the SA, add upcoming date</small></label>
+                                            
+                                            
                                             <div class="row">
                                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                     <select class="form-control" id="exampleSelect1"  disabled>
@@ -54,9 +56,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6  col-xs-6 col-md-6 col-lg-6">
+                                    <div class="col-sm-3  col-xs-3 col-md-3 col-lg-3">
                                         <label>Test Score</label>
                                         <h3 class="testscore" data-bind="text: test_score" ></h3>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeSatSingleRecAtIndex, enable: AllTestRecords.canDelSatRec">Remove Record</button>
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -424,7 +430,7 @@
                         <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">TOFL/IEL</h3>
+                        <h3 class="panel-title">TOEFL/IELTS</h3>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-plus"></i></span>
                     </div>
                     <div class="panel-body collapse">
@@ -531,10 +537,10 @@
                         </div>
                         <div class="col-md-5 ">
                             <div class="col-md-6 ">
-                                <button type="button" id="submit_31" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeToflSingleRec, enable: AllTestRecords.canDelToflRec">Remove Last TOFL/IEL</button>
+                                <button type="button" id="submit_31" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.removeToflSingleRec, enable: AllTestRecords.canDelToflRec">Remove Last TOEFL/IELTS</button>
                             </div>
                             <div class="col-md-6 ">                          
-                                <button type="button" id="submit_32" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addToflSingleRec, enable: AllTestRecords.toflSingleRec.canAddRec">Add Another TOFL/IEL</button>
+                                <button type="button" id="submit_32" name="submit" class="btn btn-primary pull-right" data-bind="click: AllTestRecords.addToflSingleRec, enable: AllTestRecords.toflSingleRec.canAddRec">Add Another TOEFL/IELTS</button>
                             </div>
                         </div>
                     </div>
