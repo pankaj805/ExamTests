@@ -117,24 +117,24 @@ var AllTestRecords = function () {
     var sat2SingleRec = {
 	    test_month: ko.observable(),        
 	    test_year: ko.observable(),
-        reading: ko.observable(),        
-	    writing: ko.observable(),
-        maths: ko.observable()
+        physics: ko.observable(),        
+	    maths: ko.observable(),
+        spanish: ko.observable()
     };
 
     sat2SingleRec.test_score = ko.pureComputed(function () {
         
         var calcValue=0;        
-        if(this.reading() != null && this.reading() !=""){
-            calcValue += parseInt(this.reading())
-        }
-        if(this.writing() != null && this.writing() !=""){
-            calcValue += parseInt(this.writing())
+        if(this.physics() != null && this.physics() !=""){
+            calcValue += parseInt(this.physics())
         }
         if(this.maths() != null && this.maths() !=""){
             calcValue += parseInt(this.maths())
         }
-        if(calcValue == 0 && this.reading() == null && this.writing() == null && this.maths() == null  ){
+        if(this.spanish() != null && this.spanish() !=""){
+            calcValue += parseInt(this.spanish())
+        }
+        if(calcValue == 0 && this.physics() == null && this.maths() == null && this.spanish() == null  ){
             return "####";
         }
         return calcValue;
@@ -142,7 +142,7 @@ var AllTestRecords = function () {
     }, sat2SingleRec);
     
     sat2SingleRec.canAddRec = ko.pureComputed(function () {
-       return  this.reading() && this.writing() && this.maths() && this.test_month() && this.test_year ;
+       return  this.physics() && this.maths() && this.spanish() && this.test_month() && this.test_year ;
     }, sat2SingleRec);    
     
     
@@ -159,15 +159,15 @@ var AllTestRecords = function () {
 	var clearSat2SingleRec = function () {
 	    sat2SingleRec.test_month(null);
 	    sat2SingleRec.test_year(null);
-	    sat2SingleRec.reading(null);
-        sat2SingleRec.writing(null);
+	    sat2SingleRec.physics(null);
         sat2SingleRec.maths(null);
+        sat2SingleRec.spanish(null);
         sat2SingleRec.test_score(null);
 	};
 	
 	
 	var addSat2SingleRec = function () {		
-	    Sat2Records.push({ test_month: sat2SingleRec.test_month(), test_year: sat2SingleRec.test_year(), reading: sat2SingleRec.reading(),writing:sat2SingleRec.writing(),maths:sat2SingleRec.maths(),test_score:sat2SingleRec.test_score()});
+	    Sat2Records.push({ test_month: sat2SingleRec.test_month(), test_year: sat2SingleRec.test_year(), physics: sat2SingleRec.physics(),maths:sat2SingleRec.maths(),spanish:sat2SingleRec.spanish(),test_score:sat2SingleRec.test_score()});
 		clearSat2SingleRec();
 	};
     
@@ -191,24 +191,29 @@ var AllTestRecords = function () {
         var actSingleRec = {
 	    test_month: ko.observable(),        
 	    test_year: ko.observable(),
-        reading: ko.observable(),        
-	    writing: ko.observable(),
-        maths: ko.observable()
+        english: ko.observable(),        
+	    maths: ko.observable(),
+        reading: ko.observable(),
+        science: ko.observable()
+            
     };
 
     actSingleRec.test_score = ko.pureComputed(function () {
         
         var calcValue=0;        
-        if(this.reading() != null && this.reading() !=""){
-            calcValue += parseInt(this.reading())
-        }
-        if(this.writing() != null && this.writing() !=""){
-            calcValue += parseInt(this.writing())
+        if(this.english() != null && this.english() !=""){
+            calcValue += parseInt(this.english())
         }
         if(this.maths() != null && this.maths() !=""){
             calcValue += parseInt(this.maths())
         }
-        if(calcValue == 0 && this.reading() == null && this.writing() == null && this.maths() == null  ){
+        if(this.reading() != null && this.reading() !=""){
+            calcValue += parseInt(this.reading())
+        }
+        if(this.science() != null && this.science() !=""){
+            calcValue += parseInt(this.science())
+        }
+        if(calcValue == 0 && this.english() == null && this.reading() == null && this.maths() == null && this.science() == null  ){
             return "####";
         }
         return calcValue;
@@ -216,7 +221,7 @@ var AllTestRecords = function () {
     }, actSingleRec);
     
     actSingleRec.canAddRec = ko.pureComputed(function () {
-       return  this.reading() && this.writing() && this.maths() && this.test_month() && this.test_year ;
+       return  this.english() && this.reading() && this.maths()  && this.science() && this.test_month() && this.test_year ;
     }, actSingleRec);    
     
     
@@ -233,15 +238,16 @@ var AllTestRecords = function () {
 	var clearActSingleRec = function () {
 	    actSingleRec.test_month(null);
 	    actSingleRec.test_year(null);
-	    actSingleRec.reading(null);
-        actSingleRec.writing(null);
+	    actSingleRec.english(null);
+        actSingleRec.reading(null);
         actSingleRec.maths(null);
+        actSingleRec.science(null);
         actSingleRec.test_score(null);
 	};
 	
 	
 	var addActSingleRec = function () {		
-	    ActRecords.push({ test_month: actSingleRec.test_month(), test_year: actSingleRec.test_year(), reading: actSingleRec.reading(),writing:actSingleRec.writing(),maths:actSingleRec.maths(),test_score:actSingleRec.test_score()});
+	    ActRecords.push({ test_month: actSingleRec.test_month(), test_year: actSingleRec.test_year(), english: actSingleRec.english(),maths:actSingleRec.maths(),reading:actSingleRec.reading(),science:actSingleRec.science(),test_score:actSingleRec.test_score()});
 		clearActSingleRec();
 	};
     
@@ -269,8 +275,9 @@ var AllTestRecords = function () {
 	    test_month: ko.observable(),        
 	    test_year: ko.observable(),
         reading: ko.observable(),        
-	    writing: ko.observable(),
-        maths: ko.observable()
+	    listen: ko.observable(),
+        speak: ko.observable(),
+        writing: ko.observable()
     };
 
     toflSingleRec.test_score = ko.pureComputed(function () {
@@ -279,13 +286,16 @@ var AllTestRecords = function () {
         if(this.reading() != null && this.reading() !=""){
             calcValue += parseInt(this.reading())
         }
+        if(this.listen() != null && this.listen() !=""){
+            calcValue += parseInt(this.listen())
+        }
+        if(this.speak() != null && this.speak() !=""){
+            calcValue += parseInt(this.speak())
+        }
         if(this.writing() != null && this.writing() !=""){
             calcValue += parseInt(this.writing())
         }
-        if(this.maths() != null && this.maths() !=""){
-            calcValue += parseInt(this.maths())
-        }
-        if(calcValue == 0 && this.reading() == null && this.writing() == null && this.maths() == null  ){
+        if(calcValue == 0 && this.reading() == null && this.listen() == null && this.speak() == null && this.writing() == null ){
             return "####";
         }
         return calcValue;
@@ -293,7 +303,7 @@ var AllTestRecords = function () {
     }, toflSingleRec);
     
     toflSingleRec.canAddRec = ko.pureComputed(function () {
-       return  this.reading() && this.writing() && this.maths() && this.test_month() && this.test_year ;
+       return  this.reading() && this.listen() && this.speak() && this.writing() && this.test_month() && this.test_year ;
     }, toflSingleRec);    
     
     
@@ -311,14 +321,15 @@ var AllTestRecords = function () {
 	    toflSingleRec.test_month(null);
 	    toflSingleRec.test_year(null);
 	    toflSingleRec.reading(null);
+        toflSingleRec.listen(null);
+        toflSingleRec.speak(null);
         toflSingleRec.writing(null);
-        toflSingleRec.maths(null);
         toflSingleRec.test_score(null);
 	};
 	
 	
 	var addToflSingleRec = function () {		
-	    ToflRecords.push({ test_month: toflSingleRec.test_month(), test_year: toflSingleRec.test_year(), reading: toflSingleRec.reading(),writing:toflSingleRec.writing(),maths:toflSingleRec.maths(),test_score:toflSingleRec.test_score()});
+	    ToflRecords.push({ test_month: toflSingleRec.test_month(), test_year: toflSingleRec.test_year(), reading: toflSingleRec.reading(),listen:toflSingleRec.listen(),speak:toflSingleRec.speak(),writing:toflSingleRec.writing(),test_score:toflSingleRec.test_score()});
 		clearToflSingleRec();
 	};
     

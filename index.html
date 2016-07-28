@@ -119,19 +119,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Reading</label>
-                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.satSingleRec.reading" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="800" data-bind="value: AllTestRecords.satSingleRec.reading, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Writing</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.satSingleRec.writing" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="800" data-bind="value: AllTestRecords.satSingleRec.writing, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Maths</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.satSingleRec.maths" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number"min="0" max="800"  data-bind="value: AllTestRecords.satSingleRec.maths, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                     </div> 
@@ -198,20 +198,20 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Reading</label>
-                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Writing</label>
-                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
+                                                    <label>Physics</label>
+                                                    <input class="text-center form-control" data-bind="value: physics" type="number" disabled >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Maths</label>
                                                     <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Spanish</label>
+                                                    <input class="text-center form-control" data-bind="value: spanish" type="number" disabled>
                                                 </div>
                                             </div>
                                         </div> 
@@ -246,20 +246,20 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Reading</label>
-                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.sat2SingleRec.reading" oninput="validity.valid||(value='');">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Writing</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.sat2SingleRec.writing" oninput="validity.valid||(value='');">
+                                                <label>Physics</label>
+                                                <input class="text-center form-control" type="number"min="0" max="300" data-bind="value: AllTestRecords.sat2SingleRec.physics, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Maths</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.sat2SingleRec.maths" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="300" data-bind="value: AllTestRecords.sat2SingleRec.maths, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Spanish</label>
+                                                <input class="text-center form-control" type="number" min="0" max="300" data-bind="value: AllTestRecords.sat2SingleRec.spanish, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                     </div> 
@@ -324,22 +324,28 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Reading</label>
-                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
+                                                    <label>English</label>
+                                                    <input class="text-center form-control" data-bind="value: english" type="number" disabled >
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Writing</label>
-                                                    <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Maths</label>
                                                     <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Reading</label>
+                                                    <input class="text-center form-control" data-bind="value: reading" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Science</label>
+                                                    <input class="text-center form-control" data-bind="value: science" type="number" disabled>
                                                 </div>
                                             </div>
                                         </div> 
@@ -372,22 +378,28 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Reading</label>
-                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.actSingleRec.reading" oninput="validity.valid||(value='');">
+                                                <label>English</label>
+                                                <input class="text-center form-control" type="number" min="0" max="200" data-bind="value: AllTestRecords.actSingleRec.english, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Writing</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.actSingleRec.writing" oninput="validity.valid||(value='');">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Maths</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.actSingleRec.maths" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="200" data-bind="value: AllTestRecords.actSingleRec.maths, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Reading</label>
+                                                <input class="text-center form-control" type="number" min="0" max="200" data-bind="value: AllTestRecords.actSingleRec.reading, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Science</label>
+                                                <input class="text-center form-control" type="number" min="0" max="200" data-bind="value: AllTestRecords.actSingleRec.science, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                     </div> 
@@ -453,22 +465,28 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Reading</label>
                                                     <input class="text-center form-control" data-bind="value: reading" type="number" disabled >
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Listening</label>
+                                                    <input class="text-center form-control" data-bind="value: listen" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Speaking</label>
+                                                    <input class="text-center form-control" data-bind="value: speak" type="number" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Writing</label>
                                                     <input class="text-center form-control" data-bind="value: writing" type="number" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Maths</label>
-                                                    <input class="text-center form-control" data-bind="value: maths" type="number" disabled>
                                                 </div>
                                             </div>
                                         </div> 
@@ -501,22 +519,28 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Reading</label>
-                                                <input class="text-center form-control" type="number" min="0" max="99999" data-bind="value: AllTestRecords.toflSingleRec.reading" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="30" data-bind="value: AllTestRecords.toflSingleRec.reading, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Listening</label>
+                                                <input class="text-center form-control" type="number" min="0" max="30" data-bind="value: AllTestRecords.toflSingleRec.listen, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Speaking</label>
+                                                <input class="text-center form-control" type="number" min="0" max="30" data-bind="value: AllTestRecords.toflSingleRec.speak, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Writing</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.toflSingleRec.writing" oninput="validity.valid||(value='');">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Maths</label>
-                                                <input class="text-center form-control" type="number" data-bind="value: AllTestRecords.toflSingleRec.maths" oninput="validity.valid||(value='');">
+                                                <input class="text-center form-control" type="number" min="0" max="30" data-bind="value: AllTestRecords.toflSingleRec.writing, valueUpdate:'keyup'" oninput="validity.valid||(value='');">
                                             </div>
                                         </div>
                                     </div> 
@@ -578,8 +602,6 @@
                 $(this).find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
             }
         });
-        
-        
         
     });
           
